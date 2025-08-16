@@ -1,4 +1,4 @@
-# Chapter 4 – MCP (Model Context Protocol) & Tool Ecosystems (Deep Dive)
+﻿# Chapter 4 – MCP (Model Context Protocol) & Tool Ecosystems (Deep Dive)
 
 ## 4.1 Introduction to MCP
 
@@ -10,7 +10,7 @@
   - Reduces errors when multiple agents or services interact
   - Facilitates monitoring and observability
   - Enables scalable orchestration of complex AI workflows
-- **Reference**: [Anthropic MCP Docs](https://www.anthropic.com/research/mcp)
+- **Reference**: [Anthropic MCP Docs](https://www.anthropic.com/research/mcp){:target="_blank"}
 
 ## 4.2 MCP Architecture
 
@@ -33,7 +33,14 @@ MCP is composed of three main components:
    - `context`
 
 **Workflow Example**:  
-Agent → MCP Server → Tool executes → Response → Agent updates memory or state
+
+| Step | Component | Action |
+|------|-----------|---------|
+| 1 | Agent | Sends request to MCP Server |
+| 2 | MCP Server | Routes to appropriate tool |
+| 3 | Tool | Executes action |
+| 4 | MCP Server | Returns response to Agent |
+| 5 | Agent | Updates memory or state |
 
 ## 4.3 Security & Access Control
 
@@ -42,14 +49,20 @@ Agent → MCP Server → Tool executes → Response → Agent updates memory or 
 - Request validation and schema enforcement
 - Audit logging for compliance and debugging
 
-**Reference**: [HF MCP Course](https://huggingface.co/course/chapter3)
+**Reference**: [HF MCP Course](https://huggingface.co/course/chapter3){:target="_blank"}
 
 ## 4.4 Tool Integration Patterns
 
 1. **Direct Calls** – Agent calls a single tool via MCP server
 2. **Orchestrated Calls** – MCP routes a single agent request to multiple tools sequentially or in parallel
 3. **Fallback Handling** – Retry with alternate tools if primary fails  
-   _Example_: An agent tries a calculator tool → fallback to Python executor → fallback to human review
+
+**Fallback Example**:  
+| Priority | Tool | Purpose |
+|----------|------|---------|
+| 1st | Calculator tool | Primary calculation method |
+| 2nd | Python executor | Fallback if calculator fails |
+| 3rd | Human review | Final fallback for complex cases |
 
 ## 4.5 Building MCP Servers for Your Organization
 
@@ -74,7 +87,7 @@ Agent → MCP Server → Tool executes → Response → Agent updates memory or 
   2. Wrap external tools as MCP clients
   3. Connect agent to MCP server using structured API calls
   4. Ensure logging and error handling
-- **Reference**: [LangChain MCP Connectors](https://www.langchain.com/docs/)
+- **Reference**: [LangChain MCP Connectors](https://www.langchain.com/docs){:target="_blank"}
 
 ## 4.7 Free-Tier Hands-On MCP Practice
 
@@ -109,14 +122,16 @@ Agent → MCP Server → Tool executes → Response → Agent updates memory or 
 
 ## 4.9 Expert References
 
-- **Anthropic MCP Docs** – [https://www.anthropic.com/research/mcp](https://www.anthropic.com/research/mcp)
-- **Hugging Face MCP Tutorial** – [https://huggingface.co/course/chapter3](https://huggingface.co/course/chapter3)
-- **LangChain Agent Connectors** – [https://www.langchain.com/docs](https://www.langchain.com/docs)
-- **FastAPI for MCP Servers** – [https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)
-- **Golang Gin for MCP Servers** – [https://gin-gonic.com/](https://gin-gonic.com/)
+- **Anthropic MCP Docs** – [https://www.anthropic.com/research/mcp](https://www.anthropic.com/research/mcp){:target="_blank"}
+- **Hugging Face MCP Tutorial** – [https://huggingface.co/course/chapter3](https://huggingface.co/course/chapter3){:target="_blank"}
+- **LangChain Agent Connectors** – [https://www.langchain.com/docs](https://www.langchain.com/docs){:target="_blank"}
+- **FastAPI for MCP Servers** – [https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/){:target="_blank"}
+- **Golang Gin for MCP Servers** – [https://gin-gonic.com/](https://gin-gonic.com/){:target="_blank"}
 
 ## 4.10 Summary
 
 - MCP standardizes agent-tool interactions, enabling structured, secure, and auditable workflows.
 - Using free-tier tools and local servers, developers can practice MCP orchestration and multi-agent integration.
 - Exercises bridge theory with hands-on implementation for fullstack developers transitioning to AI architecture.
+
+
